@@ -1,39 +1,35 @@
 #include "../inc/stack.h"
 #include <stdio.h>
 
-#define MaxStackLenth 20
-static int stackArr[MaxStackLenth] = {0};
-static int stackTop = 0;
-
-static bool isEmpty(void)
+static bool isEmpty(const Stack *p)
 {
-	return 0 == stackTop;
+	return 0 == p->top;
 }
 
-static bool isFull(void)
+static bool isFull(const Stack *p)
 {
-	return MaxStackLenth == stackTop;
+	return p->size == p->top;
 }
 
-bool push(int val)
+bool push(Stack *p, int val)
 {
-	if(isFull())
+	if(isFull(p))
 	{
 		printf("The stack is full, no place to push element!\n");
 		return false;
 	}
-	stackArr[stackTop++] = val;
+	p->pBuf[p->top++] = val;
 	return true;
 }
 
-bool pop(int *pRet)
+bool pop(Stack *p, int *pRet)
 {
-	if(isEmpty())
+	if(isEmpty(p))
 	{
 		printf("The stack is empty, no element to pop!\n");
 		return false;
 	}
-	*pRet = stackArr[--stackTop];
+	*pRet = p->pBuf[--p->top];
 	return true;
 }
 
