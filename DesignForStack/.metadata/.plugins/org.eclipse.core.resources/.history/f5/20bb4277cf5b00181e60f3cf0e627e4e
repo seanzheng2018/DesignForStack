@@ -1,0 +1,15 @@
+#include "stack.h"
+
+
+
+bool push(int val)
+{
+	return true;
+}
+
+bool pop(int *pRet)
+{
+	return true;
+}
+
+

@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "stack.h"
+
+void main(void)
+{
+	int arr[5] = {0,1,2,3,4};
+	int tmp = 0;
+
+	pop(&tmp);
+	for(int i = 0;i < 5;i++)
+	{
+		push();
+	}
+	pop(&tmp);
+	printf("tmp = %d\n",tmp);
+}
