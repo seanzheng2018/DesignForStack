@@ -9,10 +9,20 @@ typedef struct
 	int top;
 	const size_t size;
 	int * const pBuf;
+
+	const bool isNeedRangeCheck;
+	const int Min;
+	const int Max;
 }Stack;
 
 #define newStack(buf) {						\
-	0, sizeof(buf) / sizeof(int), (buf)		\
+	0, sizeof(buf) / sizeof(int), (buf),	\
+	false, 0, 0								\
+}
+
+#define newStackWithRange(buf,min,max){				\
+	0,sizeof(buf) / sizeof(int), (buf),		\
+	true, min, max							\
 }
 
 bool push(Stack *p, int val);

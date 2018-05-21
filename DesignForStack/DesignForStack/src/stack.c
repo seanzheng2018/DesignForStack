@@ -11,8 +11,18 @@ static bool isFull(const Stack *p)
 	return p->size == p->top;
 }
 
+static bool isRangeOK(const Stack *p, int val)
+{
+	return (!p->isNeedRangeCheck) || (val <= p->Max && val >= p->Min);
+}
+
 bool push(Stack *p, int val)
 {
+	if(!isRangeOK(p,val))
+	{
+		printf("The value is over the range!\n");
+		return false;
+	}
 	if(isFull(p))
 	{
 		printf("The stack is full, no place to push element!\n");
